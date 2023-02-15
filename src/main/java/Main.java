@@ -26,6 +26,7 @@ public class Main {
         CloseableHttpResponse response = httpClient.execute(request);
         PicNasa nasa = mapper.readValue(response.getEntity().getContent(), PicNasa.class);
         System.out.println(nasa);
+
         HttpGet request2 = new HttpGet(nasa.getUrl());
         CloseableHttpResponse response2 = httpClient.execute(request2);
         String[] arr = nasa.getUrl().split("/");
